@@ -7,7 +7,7 @@ import java.util.List;
 
 public class gui extends JFrame implements ActionListener  {
 
-    JButton inicioB, creditos, salir, nivel_1, nivel_2, nivel_3, regresar;
+    JButton inicioB, creditos, salir, nivel_1, nivel_2, nivel_3, regresar, gana_azul, gana_verde;
     JPanel panel_inicio, panel_niveles,panel_nivel_1,panel_nivel_2,panel_nivel_3;
     JLabel titulo, seleccion_nivel, granja1, granja2, granja_azul, granja_verde, h_verde, h_azul, comida, comida2;
 
@@ -19,6 +19,9 @@ public class gui extends JFrame implements ActionListener  {
 
     int inicio, fin;
 
+    crearXml xml;
+
+    ListaDME ganadores;
 
 
     public gui() {
@@ -181,6 +184,12 @@ public class gui extends JFrame implements ActionListener  {
         granja_verde.setBackground(Color.black);
         panel_nivel_1.add(granja_verde);
 
+        // Bototn del ganador
+
+        gana_azul= new JButton("Gana azul");
+        gana_azul.setBounds(50,500,100,30);
+        gana_azul.addActionListener(this);
+        panel_nivel_1.add(gana_azul);
 
 
 
@@ -274,6 +283,8 @@ public class gui extends JFrame implements ActionListener  {
             panel_niveles.setVisible(false);
             this.add(panel_nivel_2);
             panel_nivel_2.setVisible(true);
+            crearXml xml= new crearXml(inter);
+
         }
 
         if(e.getSource() == nivel_3){
@@ -290,8 +301,13 @@ public class gui extends JFrame implements ActionListener  {
             panel_niveles.setVisible(false);
             panel_inicio.setVisible(true);
         }
+        if (e.getSource() == gana_azul){
 
+            ganadores= new ListaDME();
+            ganadores.insertarFin(xml);
+        }
     }
+
 
 
     public static void main(String[] args) {

@@ -13,7 +13,7 @@ public class hormiga_azul_logica extends  Thread {
     }
 
     public void mov_nivel_1() throws InterruptedException {
-        r = new Random();
+       /* r = new Random();
         int inicio = 0;
         int fin = 14;
         int cambio;
@@ -63,6 +63,6 @@ public class hormiga_azul_logica extends  Thread {
         }
         System.out.println(peso);
 
-
+*/
     }
 }
